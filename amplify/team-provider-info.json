@@ -1,0 +1,35 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-braidsbyveebookingsi-dev-edb14-authRole",
+      "UnauthRoleArn": "arn:aws:iam::045810265680:role/amplify-braidsbyveebookingsi-dev-edb14-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::045810265680:role/amplify-braidsbyveebookingsi-dev-edb14-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-braidsbyveebookingsi-dev-edb14-deployment",
+      "UnauthRoleName": "amplify-braidsbyveebookingsi-dev-edb14-unauthRole",
+      "StackName": "amplify-braidsbyveebookingsi-dev-edb14",
+      "StackId": "arn:aws:cloudformation:us-east-1:045810265680:stack/amplify-braidsbyveebookingsi-dev-edb14/591957f0-5d2d-11f0-bded-123b5db61e2b",
+      "AmplifyAppId": "d1yxi4obf01hrw"
+    },
+    "categories": {
+      "api": {
+        "braidsbyveebookingsi": {}
+      },
+      "function": {
+        "sendConfirmationEmail": {
+          "deploymentBucketName": "amplify-braidsbyveebookingsi-dev-edb14-deployment",
+          "s3Key": "amplify-builds/sendConfirmationEmail-357668782b685a5a7855-build.zip"
+        }
+      },
+      "auth": {
+        "braidsbyveebookingsiadf09347": {}
+      },
+      "storage": {
+        "mediaStorage": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
+      }
+    }
+  }
+}

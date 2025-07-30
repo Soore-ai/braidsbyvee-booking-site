@@ -3,11 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './styles.css';
+import { Amplify } from 'aws-amplify';
+import awsExports from './aws-exports';
+import { Authenticator } from '@aws-amplify/ui-react'; // ✅ Add this
+
+Amplify.configure(awsExports);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Authenticator.Provider>  {/* ✅ Wrap your App in Authenticator.Provider */}
+      <App />
+    </Authenticator.Provider>
   </React.StrictMode>
 );
 

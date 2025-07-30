@@ -1,0 +1,14 @@
+{
+  "resourceName": "mediaStorage",
+  "policyUUID": "bd55c854",
+  "bucketName": "braidsbyveebookingsid59b2b1faf944904a25ff40fa8f",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ],
+  "groupAccess": {}
+}

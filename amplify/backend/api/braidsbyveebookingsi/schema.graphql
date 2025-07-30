@@ -1,0 +1,27 @@
+type Appointment @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  customerName: String!
+  email: String!
+  phone: String!
+  style: String!
+  date: AWSDate!
+  time: AWSTime!
+  notes: String
+}
+
+# ✅ Manually define the input type used by bookAppointment
+input CreateAppointmentInput {
+  customerName: String!
+  email: String!
+  phone: String!
+  style: String!
+  date: AWSDate!
+  time: AWSTime!
+  notes: String
+}
+
+# ✅ Custom mutation that triggers Lambda
+type Mutation {
+  bookAppointment(input: CreateAppointmentInput!): Appointment
+    @function(name: "sendConfirmationEmail-${env}")
+}

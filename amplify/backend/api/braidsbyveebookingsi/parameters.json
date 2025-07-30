@@ -1,0 +1,6 @@
+{
+  "AppSyncApiName": "braidsbyveebookingsi",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2025-07-10T02:09:19.632Z"
+}
