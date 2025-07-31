@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { getCurrentUser } from 'aws-amplify/auth';
-import { withAuthenticator } from '@aws-amplify/ui-react';
+import { useAuthenticator } from '@aws-amplify/ui-react';
 import HomePage from './HomePage';
 import Navbar from './navbar';
 import Gallery from './Gallery';
 import './styles.css';
 import MediaUploadPage from './MediaUploadPage';
 import BookingsDashboard from './BookingsDashboard';
-import { useAuthenticator } from '@aws-amplify/ui-react';
+import ProtectedRoute from './ProtectedRoute'; // ✅ Add this
 
-
-// Booking form remains unchanged
 function BookingForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -83,10 +80,7 @@ function BookingForm() {
   );
 }
 
-// ✅ Main App with public + protected route
 function App() {
-  const { authStatus } = useAuthenticator((context) => [context.authStatus]);
-
   return (
     <div className="App">
       <Router>
@@ -94,13 +88,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/book" element={<BookingForm />} />
-
-          {authStatus === 'authenticated' && (
-            <>
-              <Route path="/media-upload" element={<MediaUploadPage />} />
-              <Route path="/admin/bookings" element={<BookingsDashboard />} />
-            </>
-          )}
+          <Route path="/media-upload" element={<ProtectedRoute><MediaUploadPage /></ProtectedRoute>} />
+          <Route path="/admin/bookings" element={<ProtectedRoute><BookingsDashboard /></ProtectedRoute>} />
         </Routes>
       </Router>
     </div>
