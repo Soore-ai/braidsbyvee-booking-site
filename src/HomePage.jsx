@@ -21,30 +21,31 @@ function HomePage() {
   <h2>Our Services</h2>
   <div className="service-list">
     {[
-      {
-        title: 'Knotless Braids',
-        description: 'Lightweight, protective, and beautiful.',
-        file: 'braids.jpg',
-        alt: 'Braids',
-      },
-      {
-        title: 'Passion Twists',
-        description: 'Soft, romantic twist styles.',
-        file: 'passion-twist.mp4',
-        alt: 'Passion Twists',
-      },
-      {
-        title: 'Cornrows',
-        description: 'Stitched Cornrows.',
-        file: 'stitched-cornrows.jpeg',
-        alt: 'Cornrows',
-      },
-      {
-        title: 'Box Braids',
-        description: 'Nice and Clean.',
-        file: 'box-braids.jpeg',
-        alt: 'Box Braids',
-      },
+        {
+          title: 'Knotless Braids',
+          description: 'Lightweight, protective, and beautiful.',
+          file: 'https://braidsbyveebookingsid59b2b1faf944904a25ff40fa8fedb14-dev.s3.us-east-1.amazonaws.com/public/gallery/braids.jpg',
+          alt: 'Braids',
+        },
+        {
+          title: 'Passion Twists',
+          description: 'Soft, romantic twist styles.',
+          file: 'https://braidsbyveebookingsid59b2b1faf944904a25ff40fa8fedb14-dev.s3.us-east-1.amazonaws.com/public/gallery/passion-twist.mp4',
+          alt: 'Passion Twists',
+        },
+        {
+          title: 'Cornrows',
+          description: 'Stitched Cornrows.',
+          file: 'https://braidsbyveebookingsid59b2b1faf944904a25ff40fa8fedb14-dev.s3.us-east-1.amazonaws.com/public/gallery/stitched-cornrows.jpeg',
+          alt: 'Cornrows',
+        },
+        {
+          title: 'Box Braids',
+          description: 'Nice and Clean.',
+          file: 'https://braidsbyveebookingsid59b2b1faf944904a25ff40fa8fedb14-dev.s3.us-east-1.amazonaws.com/public/gallery/box-braids.jpeg',
+          alt: 'Box Braids',
+        },
+
     ].map((service, index) => (
       <ServiceCard key={index} {...service} />
     ))}

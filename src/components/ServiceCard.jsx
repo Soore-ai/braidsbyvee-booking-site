@@ -7,14 +7,14 @@ function ServiceCard({ title, description, file, alt }) {
     <div className="service-card">
       {isVideo ? (
         <video
-          src={`/assets/${file}`}
+          src={file}
           controls
           width="100%"
           style={{ borderRadius: '10px' }}
         />
       ) : (
         <img
-          src={`/assets/${file}`}
+          src={file}
           alt={alt}
           style={{ width: '100%', borderRadius: '10px' }}
         />
