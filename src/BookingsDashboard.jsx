@@ -48,9 +48,11 @@ function BookingsDashboard() {
         <div className="booking-list">
           {appointments.map((appt) => (
             <div key={appt.id} className="booking-card">
-              <p><strong>Name:</strong> {appt.name}</p>
+              <p><strong>Name:</strong> {appt.customerName}</p>
               <p><strong>Email:</strong> {appt.email}</p>
+              <p><strong>Phone:</strong> {appt.phone}</p>
               <p><strong>Date:</strong> {appt.date}</p>
+              <p><strong>Time:</strong> {appt.time}</p>
               <p><strong>Style:</strong> {appt.style}</p>
               <p><strong>Notes:</strong> {appt.notes}</p>
             </div>

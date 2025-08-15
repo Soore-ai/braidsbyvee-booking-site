@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './styles.css';
-import { Amplify } from 'aws-amplify';
+import { Amplify } from 'aws-amplify/api';
 import awsExports from './aws-exports';
 import { Authenticator } from '@aws-amplify/ui-react'; // ✅ Add this
 

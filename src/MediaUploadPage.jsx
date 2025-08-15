@@ -3,7 +3,7 @@ import UploadMedia from './UploadMedia';
 import Gallery from './Gallery';
 import { getCurrentUser, signOut as amplifySignOut } from '@aws-amplify/auth';
 import { Link } from 'react-router-dom';
-import { API } from 'aws-amplify';
+import { API, graphqlOperation } from 'aws-amplify';
 import { listAppointments } from './graphql/queries'; // adjust path if needed
 
 function MediaUploadPage() {

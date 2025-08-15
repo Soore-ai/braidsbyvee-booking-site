@@ -1,5 +1,5 @@
 import React, { useState } from 'react'; 
-import { getCurrentUser } from 'aws-amplify/auth';
+import { getCurrentUser } from '@aws-amplify/auth';
 import { uploadData } from '@aws-amplify/storage'; // Import Gen 2 storage method
 
 
