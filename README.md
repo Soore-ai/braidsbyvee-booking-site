@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# Braids by Vee — Booking Site (Frontend)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Live site:** https://braidsbyvee.com
+  
+This is the React frontend for the Braids by Vee hair-booking app. It renders the gallery/home page and a `/book` page that submits appointments to an AWS serverless backend.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## What it does
+- Home page with gallery and CTA  
+- **/book** page that POSTs booking data to API Gateway → Lambda → DynamoDB  
+- Hosted on **S3 + CloudFront** (fast, global, inexpensive)
 
-### `npm start`
+## Stack
+- **Frontend:** React (CRA), vanilla CSS  
+- **Hosting/CDN:** Amazon S3 + CloudFront  
+- **Backend (separate repo):** API Gateway, Lambda (Node.js), DynamoDB, CloudFormation/SAM  
+  - Backend repo: https://github.com/Soore-ai/project-template-aws
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Environment
+Create a `.env` file from the example:
+cp .env.example .env
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+Copy code
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Set your API endpoint (from API Gateway):
+REACT_APP_API_URL=https://3jfk8oqf81.execute-api.us-east-1.amazonaws.com/Prod/book
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Copy code
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> React only reads `REACT_APP_*` variables at **build time**.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Run locally
+npm install
+npm start
 
-### `npm run eject`
+open http://localhost:3000/book
+shell
+Copy code
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Build & deploy (S3/CloudFront)
+npm run build
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+sync to your bucket/prefix
+aws s3 sync build s3://<your-site-bucket>/ --delete
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+then invalidate your distribution
+aws cloudfront create-invalidation --distribution-id <DIST_ID> --paths "/*"
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+Copy code
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Screenshots
+| View | Image |
+|---|---|
+| Home | ![Home](docs/images/site-home-current.png) |
+| Booking Page | ![Book](docs/images/site-book-live.png) |
+| Booking Success | ![Success](docs/images/site-book-success.png) |
+| DynamoDB Item | ![DDB](docs/images/ddb-items-after-site-book.png) |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Folder structure (frontend)
+.
+├─ public/
+├─ src/
+│ ├─ pages/
+│ │ └─ Book.jsx
+│ ├─ App.jsx
+│ └─ index.js
+├─ docs/
+│ └─ images/ # screenshots used in this README
+├─ .env.example
+└─ package.json
 
-### Code Splitting
+Copy code
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Notes
+- Do **not** commit your real `.env`; use `.env.example`.  
+- For SPA routing issues on CloudFront, map 403/404 to `/index.html`.
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Author:** ED EGUAIKHIDE (Braids by Vee)
