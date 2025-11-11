@@ -248,9 +248,9 @@ Removed unused Amplify resources after migration to **S3 + CloudFront** hosting 
 
 ## 📸 Screenshots
 
-![Architecture Diagram](path/to/architecture-diagram.png)
-![Home Page](path/to/homepage-screenshot.png)
-![Booking Page](path/to/booking-page-screenshot.png)
+![Architecture Diagram](docs/images/BRAIDS BY VEE ARCHITECTURE.png.png)
+![Home Page](docs/images/site-home-current.png.png)
+![Booking Page](docs/images/site-book-live.png.png)
 
 ```
 without all the details.
